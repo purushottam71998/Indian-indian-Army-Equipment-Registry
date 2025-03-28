@@ -1,0 +1,903 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Army - Complete Equipment Profile</title>
+    <link rel="icon" type="image/webp" href="images/indarmy.webp">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --army-green: #4B5320;
+            --light-green: #8F9779;
+            --gold: #FFD700;
+            --white: #ffffff;
+            --dark-gray: #333333;
+            --light-gray: #f5f5f5;
+            --medium-gray: #e0e0e0;
+            --camo-dark: #5F5F5F;
+            --camo-light: #A2A2A2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image:url("a.jpg");
+            backdrop-filter:blur(3px);
+            font-family: 'Roboto', sans-serif;
+            color: var(--dark-gray);
+            background-color: var(--light-gray);
+            line-height: 1.6;
+            background-image: url('images/camo-pattern.png');
+            background-attachment: fixed;
+            background-size: 300px;
+            background-blend-mode: overlay;
+            background-color: rgba(245, 245, 245, 0.9);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        /* Header Styles */
+        .army-header {
+            background-color: var(--army-green);
+            color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .army-logo {
+            height: 60px;
+            width: auto;
+        }
+
+        .logo-container h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .search-container {
+            position: relative;
+            width: 350px;
+        }
+
+        #search {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            border-radius: 30px;
+            border: none;
+            font-size: 0.9rem;
+            background-color: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+        }
+
+        #search:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--gold);
+            background-color: var(--white);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--army-green);
+        }
+
+        /* Navigation Menu */
+        .nav-menu {
+            background-color: var(--camo-dark);
+            padding: 0 2rem;
+            background-image: linear-gradient(to right, var(--camo-dark), var(--camo-light), var(--camo-dark));
+        }
+
+        .nav-menu ul {
+            display: flex;
+            list-style: none;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .nav-menu li {
+            flex: 1;
+            text-align: center;
+        }
+
+        .nav-menu a {
+            display: block;
+            color: var(--white);
+            text-decoration: none;
+            padding: 1rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-menu i {
+            margin-right: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            color: var(--army-green);
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--gold);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .section-title i {
+            font-size: 1.2rem;
+        }
+
+        /* Equipment Grid */
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .equipment-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--light-green);
+        }
+
+        .equipment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .equipment-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--gold);
+            color: var(--dark-gray);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-content h3 {
+            color: var(--army-green);
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .class-name {
+            color: var(--light-green);
+            font-weight: 500;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .spec-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .spec-list li {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .spec-list strong {
+            color: var(--army-green);
+        }
+
+        .details-btn {
+            background-color: var(--army-green);
+            color: var(--white);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .details-btn:hover {
+            background-color: #3a4418;
+        }
+
+        /* Special Card Types */
+        .tank {
+            border-top: 4px solid #8B4513;
+        }
+
+        .artillery {
+            border-top: 4px solid #A52A2A;
+        }
+
+        .indigenous {
+            border-top: 4px solid #006400;
+        }
+
+        .small-arms {
+            border-top: 4px solid #4682B4;
+        }
+
+        /* Budget Section */
+        .budget-section {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 3rem 0;
+            border: 1px solid var(--light-green);
+        }
+
+        .budget-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .budget-card {
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 1px solid var(--light-green);
+        }
+
+        .budget-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .budget-card i {
+            font-size: 2rem;
+            color: var(--army-green);
+            margin-bottom: 1rem;
+        }
+
+        .budget-card h3 {
+            color: var(--army-green);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .highlight {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--army-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .budget-details {
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--light-green);
+        }
+
+        .budget-details p {
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .budget-details ul {
+            list-style-position: inside;
+            padding-left: 1rem;
+        }
+
+        .budget-details li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        .army-footer {
+            background-color: var(--army-green);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+            background-image: linear-gradient(to bottom, var(--army-green), #3a4418);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo {
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-section h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--gold);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .footer-section i {
+            margin-right: 0.5rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .search-container {
+                width: 100%;
+            }
+
+            .nav-menu ul {
+                flex-wrap: wrap;
+            }
+
+            .nav-menu li {
+                flex: 1 0 50%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .equipment-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-menu li {
+                flex: 1 0 100%;
+            }
+
+            .budget-highlights {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="army-header">
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="Indian_Army_Insignia_round.jpg" alt="Indian Army Logo" class="army-logo">
+                <h1>Indian Army Equipment Registry</h1>
+            </div>
+            <div class="search-container">
+                <input type="text" id="search" placeholder="Search tanks, weapons or systems..." onkeyup="searchFunction()">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#tanks"><i class="fas fa-tank"></i> Tanks</a></li>
+                <li><a href="#artillery"><i class="fas fa-cannons"></i> Artillery</a></li>
+                <li><a href="#infantry"><i class="fas fa-person-rifle"></i> Infantry Weapons</a></li>
+                <li><a href="#vehicles"><i class="fas fa-truck-monster"></i> Armored Vehicles</a></li>
+                <li><a href="#airdefense"><i class="fas fa-radar"></i> Air Defense</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Tanks Section -->
+        <section id="tanks" class="equipment-section">
+            <h2 class="section-title"><i class="fas fa-tank"></i> Main Battle Tanks</h2>
+            
+            <div class="equipment-grid">
+                <!-- Arjun MBT -->
+                <article class="equipment-card tank indigenous">
+                    <div class="card-image">
+                        <img src="arjun.jpg" alt="Arjun MBT">
+                        <span class="badge">Indigenous</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Arjun MBT Mk-1A</h3>
+                        <p class="class-name">Arjun Main Battle Tank</p>
+                        <ul class="spec-list">
+                            <li><strong>Type:</strong> Third-generation main battle tank</li>
+                            <li><strong>In Service:</strong> 2004-present</li>
+                            <li><strong>Armament:</strong> 120mm rifled gun, 12.7mm AA MG</li>
+                            <li><strong>Weight:</strong> 68.5 tons</li>
+                            <li><strong>Speed:</strong> 70 km/h</li>
+                        </ul>
+                        <button class="details-btn" >View Details</button>
+                       
+                    </div>
+                </article>
+
+                <!-- T-90 Bhishma -->
+                <article class="equipment-card tank">
+                    <div class="card-image">
+                        <img src="T-90M.jpg" alt="T-90 Bhishma">
+                        <span class="badge">Heavy</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>T-90S Bhishma</h3>
+                        <p class="class-name">Russian Main Battle Tank</p>
+                        <ul class="spec-list">
+                            <li><strong>Type:</strong> Third-generation main battle tank</li>
+                            <li><strong>In Service:</strong> 2001-present</li>
+                            <li><strong>Armament:</strong> 125mm smoothbore gun, 12.7mm AA MG</li>
+                            <li><strong>Weight:</strong> 46.5 tons</li>
+                            <li><strong>Speed:</strong> 60 km/h</li>
+                        </ul>
+                        <button class="details-btn">View Details</button>
+                    </div>
+                </article>
+
+                <!-- T-72 Ajeya -->
+                <article class="equipment-card tank">
+                    <div class="card-image">
+                        <img src="T-72_.webp" alt="T-72 Ajeya">
+                        <span class="badge">Upgraded</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>T-72M1 Ajeya</h3>
+                        <p class="class-name">Upgraded Soviet-era MBT</p>
+                        <ul class="spec-list">
+                            <li><strong>Type:</strong> Second-generation main battle tank</li>
+                            <li><strong>In Service:</strong> 1980-present</li>
+                            <li><strong>Armament:</strong> 125mm smoothbore gun, 7.62mm MG</li>
+                            <li><strong>Weight:</strong> 41 tons</li>
+                            <li><strong>Speed:</strong> 60 km/h</li>
+                        </ul>
+                        <button class="details-btn">View Details</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Artillery Section -->
+        <section id="artillery" class="equipment-section">
+            <h2 class="section-title"><i class="fas fa-cannons"></i> Artillery Systems</h2>
+            
+            <div class="equipment-grid">
+                <!-- Dhanush Howitzer -->
+                <article class="equipment-card artillery indigenous">
+                    <div class="card-image">
+                        <img src="howitzer.jpg" alt="Dhanush Howitzer">
+                        <span class="badge">Indigenous</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Dhanush Howitzer</h3>
+                        <p class="class-name">155mm/45 Caliber Towed Gun</p>
+                        <ul class="spec-list">
+                            <li><strong>Type:</strong> Towed artillery gun</li>
+                            <li><strong>In Service:</strong> 2019-present</li>
+                            <li><strong>Range:</strong> 38 km (ERFB)</li>
+                            <li><strong>Weight:</strong> 13 tons</li>
+                            <li><strong>Crew:</strong> 6-8 personnel</li>
+                        </ul>
+                        <button class="details-btn">View Details</button>
+                    </div>
+                </article>
+
+                <!-- K9 Vajra -->
+                <article class="equipment-card artillery">
+                    <div class="card-image">
+                        <img src="k9.jpg" alt="K9 Vajra">
+                        <span class="badge">Self-Propelled</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>K9 VAJRA-T</h3>
+                        <p class="class-name">155mm/52 Caliber SPH</p>
+                        <ul class="spec-list">
+                            <li><strong>Type:</strong> Self-propelled howitzer</li>
+                            <li><strong>In Service:</strong> 2018-present</li>
+                            <li><strong>Range:</strong> 40 km (ERFB)</li>
+                            <li><strong>Weight:</strong> 50 tons</li>
+                            <li><strong>Speed:</strong> 67 km/h</li>
+                        </ul>
+                        <button class="details-btn">View Details</button>
+                    </div>
+                </article>
+
+                <!-- Pinaka MBRL -->
+                <article class="equipment-card artillery indigenous">
+                    <div class="card-image">
+                        <img src="mbrl.jpg" alt="Pinaka MBRL">
+                        <span class="badge">Rocket Artillery</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Pinaka MBRL</h3>
+                        <p class="class-name">214mm Multi Barrel Rocket Launcher</p>
+                        <ul class="spec-list">
+                            <li><strong>Type:</strong> Multiple rocket launcher</li>
+                            <li><strong>In Service:</strong> 1998-present</li>
+                            <li><strong>Range:</strong> 60-90 km (Mk-II)</li>
+                            <li><strong>Salvo:</strong> 12 rockets in 44 sec</li>
+                            <li><strong>Warhead:</strong> 100 kg high explosive</li>
+                        </ul>
+                        <button class="details-btn">View Details</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Infantry Weapons Section -->
+        <section id="infantry" class="equipment-section">
+            <h2 class="section-title"><i class="fas fa-person-rifle"></i> Infantry Weapons</h2>
+            
+            <div class="equipment-grid">
+                <!-- INSAS Rifle -->
+                <article class="equipment-card small-arms indigenous">
+                    <div class="card-image">
+                        <img src="insas.jpg" alt="INSAS Rifle">
+                        <span class="badge">Standard Issue</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>INSAS Rifle</h3>
+                        <p class="class-name">Indian Small Arms System</p>
+                        <ul class="spec-list">
+                            <li><strong>Type:</strong> Assault rifle</li>
+                            <li><strong>In Service:</strong> 1998-present</li>
+                            <li><strong>Caliber:</strong> 5.56×45mm NATO</li>
+                            <li><strong>Range:</strong> 400m effective</li>
+                            <li><strong>Rate of Fire:</strong> 650 RPM</li>
+                        </ul>
+                        <button class="details-btn">View Details</button>
+                    </div>
+                </article>
+
+                <!-- SIG 716 -->
+                <article class="equipment-card small-arms">
+                    <div class="card-image">
+                        <img src="SIG_SG.jpg" alt="SIG 716">
+                        <span class="badge">New Gen</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>SIG 716i</h3>
+                        <p class="class-name">7.62×51mm Battle Rifle</p>
+                        <ul class="spec-list">
+                            <li><strong>Type:</strong> Battle rifle</li>
+                            <li><strong>In Service:</strong> 2019-present</li>
+                            <li><strong>Caliber:</strong> 7.62×51mm NATO</li>
+                            <li><strong>Range:</strong> 600m effective</li>
+                            <li><strong>Magazine:</strong> 20 rounds</li>
+                        </ul>
+                        <button class="details-btn">View Details</button>
+                    </div>
+                </article>
+
+                <!-- Negev LMG -->
+                <article class="equipment-card small-arms">
+                    <div class="card-image">
+                        <img src="negvg.jpg" alt="Negev LMG">
+                        <span class="badge">Light Machine Gun</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Negev NG7</h3>
+                        <p class="class-name">7.62×51mm Light Machine Gun</p>
+                        <ul class="spec-list">
+                            <li><strong>Type:</strong> Squad automatic weapon</li>
+                            <li><strong>In Service:</strong> 2020-present</li>
+                            <li><strong>Caliber:</strong> 7.62×51mm NATO</li>
+                            <li><strong>Range:</strong> 800m effective</li>
+                            <li><strong>Rate of Fire:</strong> 700 RPM</li>
+                        </ul>
+                        <button class="details-btn">View Details</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Armored Vehicles Section -->
+        <section id="vehicles" class="equipment-section">
+            <h2 class="section-title"><i class="fas fa-truck-monster"></i> Armored Vehicles</h2>
+            
+            <div class="equipment-grid">
+                <!-- BMP-2 Sarath -->
+                <article class="equipment-card">
+                    <div class="card-image">
+                        <img src="sarth1.jpg" alt="BMP-2 Sarath">
+                        <span class="badge">IFV</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>BMP-2 Sarath</h3>
+                        <p class="class-name">Infantry Fighting Vehicle</p>
+                        <ul class="spec-list">
+                            <li><strong>Type:</strong> Amphibious IFV</li>
+                            <li><strong>In Service:</strong> 1987-present</li>
+                            <li><strong>Armament:</strong> 30mm cannon, Konkurs ATGM</li>
+                            <li><strong>Weight:</strong> 14.3 tons</li>
+                            <li><strong>Speed:</strong> 65 km/h</li>
+                        </ul>
+                        <button class="details-btn">View Details</button>
+                    </div>
+                </article>
+
+                <!-- Kestrel APC -->
+                <article class="equipment-card indigenous">
+                    <div class="card-image">
+                        <img src="KestrelWhAP.jpg" alt="Kestrel APC">
+                        <span class="badge">Indigenous</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Kestrel WhAP</h3>
+                        <p class="class-name">Wheeled Armored Platform</p>
+                        <ul class="spec-list">
+                            <li><strong>Type:</strong> 8×8 wheeled APC</li>
+                            <li><strong>In Service:</strong> 2021-present</li>
+                            <li><strong>Armament:</strong> Remote weapon station</li>
+                            <li><strong>Weight:</strong> 25 tons</li>
+                            <li><strong>Speed:</strong> 100 km/h</li>
+                        </ul>
+                        <button class="details-btn">View Details</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Air Defense Section -->
+        <section id="airdefense" class="equipment-section">
+            <h2 class="section-title"><i class="fas fa-radar"></i> Air Defense Systems</h2>
+            
+            <div class="equipment-grid">
+                <!-- Akash SAM -->
+                <article class="equipment-card indigenous">
+                    <div class="card-image">
+                        <img src="Akash SAM.jpg" alt="Akash SAM">
+                        <span class="badge">Indigenous</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Akash SAM</h3>
+                        <p class="class-name">Medium Range Surface-to-Air</p>
+                        <ul class="spec-list">
+                            <li><strong>Type:</strong> Mobile SAM system</li>
+                            <li><strong>In Service:</strong> 2009-present</li>
+                            <li><strong>Range:</strong> 30-35 km</li>
+                            <li><strong>Altitude:</strong> 18 km</li>
+                            <li><strong>Speed:</strong> Mach 2.5</li>
+                        </ul>
+                        <button class="details-btn">View Details</button>
+                    </div>
+                </article>
+
+                <!-- QRSAM -->
+                <article class="equipment-card indigenous">
+                    <div class="card-image">
+                        <img src="QRSAM.jpg" alt="QRSAM">
+                        <span class="badge">Quick Reaction</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>QRSAM</h3>
+                        <p class="class-name">Quick Reaction SAM</p>
+                        <ul class="spec-list">
+                            <li><strong>Type:</strong> Mobile short-range SAM</li>
+                            <li><strong>In Service:</strong> 2021-present</li>
+                            <li><strong>Range:</strong> 25-30 km</li>
+                            <li><strong>Reaction Time:</strong> < 5 sec</li>
+                            <li><strong>Mobility:</strong> All-terrain vehicle</li>
+                        </ul>
+                        <button class="details-btn">View Details</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Budget Section -->
+        <section class="budget-section">
+            <h2 class="section-title"><i class="fas fa-rupee-sign"></i> Indian Army Budget 2025-26</h2>
+            <div class="budget-highlights">
+                <div class="budget-card total">
+                    <i class="fas fa-wallet"></i>
+                    <h3>Total Allocation</h3>
+                    <p class="highlight">₹1,12,345 Crore</p>
+                    <p>23.5% of defense budget</p>
+                </div>
+                <div class="budget-card modernization">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Modernization</h3>
+                    <p class="highlight">₹32,150 Crore</p>
+                    <p>New weapons & systems</p>
+                </div>
+                <div class="budget-card indigenous">
+                    <i class="fas fa-industry"></i>
+                    <h3>Indigenous</h3>
+                    <p class="highlight">₹2,750 Crore</p>
+                    <p>Make in India projects</p>
+                </div>
+            </div>
+            <div class="budget-details">
+                <p>The Indian Army's budget for 2025-26 focuses on modernization and self-reliance with key allocations for:</p>
+                <ul>
+                    <li>Future Ready Combat Vehicles (FRCV)</li>
+                    <li>Upgradation of T-72 and T-90 tanks</li>
+                    <li>New generation small arms and night vision</li>
+                    <li>Advanced air defense systems</li>
+                    <li>Enhanced border infrastructure</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="army-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="Indian_Army_Insignia_round.jpg" alt="Indian Army Logo" class="footer-logo">
+                <p>Indian Army Equipment Registry<br>Ministry of Defence, Government of India</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Official Army Website</a></li>
+                    <li><a href="#">Current Operations</a></li>
+                    <li><a href="#">Recruitment</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p><i class="fas fa-envelope"></i> info@indianarmy.gov.in</p>
+                <p><i class="fas fa-phone"></i> +91-11-23010231</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2024 Indian Army. All rights reserved. | Data as of March 2024</p>
+        </div>
+    </footer>
+
+    <script>
+        function searchFunction() {
+            const input = document.getElementById('search');
+            const filter = input.value.toUpperCase();
+            const cards = document.querySelectorAll('.equipment-card');
+            
+            cards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toUpperCase();
+                const description = card.querySelector('.class-name').textContent.toUpperCase();
+                const specs = Array.from(card.querySelectorAll('.spec-list li')).map(li => li.textContent.toUpperCase()).join(' ');
+                
+                if (title.includes(filter) || description.includes(filter) || specs.includes(filter)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Add click event to all detail buttons
+        document.querySelectorAll('.details-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const cardTitle = this.parentElement.querySelector('h3').textContent;
+                alert(Detailed information for ${cardTitle} would be displayed here.\nThis would typically open a modal or new page with complete specifications.);
+            });
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

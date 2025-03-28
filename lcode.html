@@ -1,0 +1,75 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Rotating Logo</title>
+    <style>
+        body {
+            background-color: #000;
+            background-image: url(3.jpg);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .logo-container {
+            width: 500px;
+            height: 500px;
+            position: relative;
+            animation: float 3s infinite ease-in-out;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: contain;
+            transform-style: preserve-3d;
+            animation: rotate 5s linear;
+        }
+
+        /* Floating effect */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Rotating effect */
+        @keyframes rotate {
+            from {
+                transform: rotateY(0deg);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logo-container">
+        <img id="logo" src="5.png.jpg" alt="3D Logo">
+    </div>
+
+    <script>
+        
+        setTimeout(function() {
+            document.getElementById("logo").style.animation = "none"; 
+        }, 5000);
+        
+        
+        setTimeout(function() {
+            window.location.href = "1p.html";
+        }, 1700);
+    </script>
+
+</body>
+</html>
